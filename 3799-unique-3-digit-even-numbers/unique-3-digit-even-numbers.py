@@ -1,0 +1,11 @@
+class Solution:
+    def totalNumbers(self, digits: List[int]) -> int:
+        s = set()
+        n = len(digits)
+        for i in range(n):
+            for j in range(n):
+                for k in range(n):
+                    if i != j and j != k and i != k:
+                        if digits[i] != 0 and digits[k] % 2 == 0:
+                            s.add((digits[i], digits[j], digits[k]))
+        return len(s)
